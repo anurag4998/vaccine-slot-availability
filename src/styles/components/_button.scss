@@ -1,0 +1,35 @@
+.btn
+{
+    outline: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.4rem;
+    font-size:1.3rem;
+    border-radius: 0.25rem;
+    letter-spacing: 0.01rem;
+}
+
+.btn--danger
+{
+    color: #fff;
+    background-color: #ff1731;    
+}
+
+.btn--blue 
+{
+    color: #fff;
+    background-color: #7c41ff;
+}
+
+.btn--orange 
+{
+    background-color: #ef6603;
+    color: white;
+}
+
+.btn--disabled
+{
+    cursor: not-allowed;
+}

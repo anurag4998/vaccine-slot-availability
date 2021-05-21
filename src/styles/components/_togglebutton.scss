@@ -1,0 +1,45 @@
+.toggle-switch
+{
+    height: 2rem;
+    width: 4rem;
+    border-radius: 1rem;
+    transition: all 0.35s;
+    border: 1px solid $toggle-button1;
+    text-align: left;
+    background-color:$toggle-button1;
+
+}
+
+.switch
+{
+    
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 50%;
+    border: #666;
+    transition: all 0.5s;
+    background-color: #fff;
+    box-shadow: 0 .1rem .3rem #666;
+    margin: 0.6px 0.1px 2.5px 1px;
+    cursor: pointer;
+}
+
+.on-animationright
+{
+    transform: translate(1.85rem, 0px); 
+
+}
+
+.on-animationleft
+{
+    transform: translate(0px, 0px);
+
+}
+
+
+
+.switchlight:focus
+{
+    outline-style: none;
+}
+

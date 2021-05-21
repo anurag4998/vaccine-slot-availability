@@ -1,0 +1,38 @@
+{
+  "districts": [
+    {
+      "301": [
+        {
+          "district": 301,
+          "email": "anuragagrawal4998@gmail.com",
+          "vaccine": "Covaxin",
+          "dose": "",
+          "ageGroup": ""
+        }
+      ],
+      "id": 1
+    },
+    {
+      "704": [
+        {
+          "district": 704,
+          "email": "anuragagrawal4998@gmail.com",
+          "vaccine": "Covaxin",
+          "dose": "",
+          "ageGroup": ""
+        }
+      ],
+      "id": 2
+    },
+    {
+      "301": {
+        "district": 301,
+        "email": "anuragagrawal4998@gmail.com",
+        "vaccine": "Covaxin",
+        "dose": "",
+        "ageGroup": ""
+      },
+      "id": 3
+    }
+  ]
+}

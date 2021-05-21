@@ -1,5 +1,7 @@
-{  
-    "states":[  
+const districts = 
+
+   
+    [  
        {  
           "state":"Andhra Pradesh",
           "districts":[  
@@ -898,4 +900,7 @@
           ]
        }
     ]
- }
+   
+
+
+export default districts
