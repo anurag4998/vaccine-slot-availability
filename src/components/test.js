@@ -1,18 +1,31 @@
 import React , {useState} from 'react';
 import { useFormik } from 'formik';
+import states from '../data/districts'
 import districtmap from '../data/district_map'
 import postData from '../apicalls/postdata'
 import swal from 'sweetalert';
-let districtList = [];
-for(let i = 0 ; i < districtmap.length;i ++)
-    districtList = [...districtList , districtmap[i]["district name"]]
 
+
+let districtList = [];
+let stateList = [];
+
+for(let i = 0 ; i < districtmap.length;i ++)
+{
+    districtList = [...districtList , districtmap[i]["district name"]]
+}
+
+stateList.push(states.map(x => x.state));
+stateList[0].sort();
 districtList.sort();
+
+
 let vaccineList = ['Covaxin', 'Covishield'];
 let doseList = ['Dose 1', 'Dose 2'];
 let ageGroupList = ['18+', '45+'];
 
 const Test = () => {
+
+
 
   const [moreFilters, setMoreFilters] = useState(false);
   const [isUploading, setisUploading] = useState(false);
@@ -24,6 +37,7 @@ const Test = () => {
      const formik = useFormik({
         initialValues: {
           district: '',
+          state : '',
           vaccine : '',
           email: '',
           dose : '',
@@ -57,6 +71,7 @@ const Test = () => {
           setisUploading(false);
         },
       });
+
     return(
         <div className = 'form-wrapper'>
         <form onSubmit={formik.handleSubmit} className = 'registerform'>
@@ -76,6 +91,29 @@ const Test = () => {
                   <div className = 'registerform__row--error'>{formik.errors.email}</div>
                 : null}
             </div>
+            <div className = 'registerform__row'>
+          
+                  <select 
+                      id="state"
+                      name="state"
+                      className = "inputbox"
+                      onChange={formik.handleChange}
+                      required
+                      onBlur = {formik.handleBlur}
+                      type = "text"
+                      value={formik.values.state !== '' ?  formik.values.state : undefined}
+                  > 
+                  <option value = '' hidden>Select State</option>
+                 
+                  {stateList[0].map( (x,index) =>
+                    <option key={index} value = {x} type = "search">{x}</option>
+                  )};
+                  
+                </select>
+                {formik.errors.state && formik.touched.state ? 
+                  <div className = 'registerform__row--error'>{formik.errors.state}</div>
+                : null}     
+            </div>
            
             <div className = 'registerform__row'>
           
@@ -90,10 +128,14 @@ const Test = () => {
                       value={formik.values.district !== '' ?  formik.values.district : undefined}
                   > 
                   <option value = '' hidden>Select District</option>
-                 
-                  {districtList.map( (x,index) =>
-                    <option key={index} value = {x} type = "search">{x}</option>
-                  )};
+
+                  {formik.values.state ? districtmap.filter(x => {
+                      if(x.state_name.toLowerCase().trim() === formik.values.state.toLowerCase().trim())
+                          return x;
+                  }).map((x,index) => <option key={index} value = {x["district name"]} type = "search">{x["district name"]}</option>
+                  ): undefined}
+
+                  
                   
                 </select>
                 {formik.errors.district && formik.touched.district ? 
