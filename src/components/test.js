@@ -86,7 +86,7 @@ const Test = () => {
                       onChange={formik.handleChange}
                       required
                       onBlur = {formik.handleBlur}
-                      typeof = "search"
+                      type = "text"
                       value={formik.values.district !== '' ?  formik.values.district : undefined}
                   > 
                   <option value = '' hidden>Select District</option>
