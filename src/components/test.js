@@ -50,7 +50,6 @@ const Test = () => {
           let data = {...values} 
           data.district = district_id
           let a = await postData(data.district,data.vaccine,data.email,data.dose,data.ageGroup);
-          console.log(a)
           if(a === true)
             swal("Done!" , 'registered succesfully' , "success")
           else if(a.response === false)
@@ -87,6 +86,7 @@ const Test = () => {
                       onChange={formik.handleChange}
                       required
                       onBlur = {formik.handleBlur}
+                      typeof = "search"
                       value={formik.values.district !== '' ?  formik.values.district : undefined}
                   > 
                   <option value = '' hidden>Select District</option>
