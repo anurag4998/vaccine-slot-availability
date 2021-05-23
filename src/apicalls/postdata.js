@@ -4,7 +4,7 @@ const postData = async(district,vaccine,email,dose,ageGroup) =>{
 
     
     try{
-            await axios.post("http://localhost:5000/register",
+            await axios.post("https://anurag-vacslot.herokuapp.com/register",
             {
                 district,
                 vaccine,
